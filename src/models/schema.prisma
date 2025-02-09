@@ -1,12 +1,14 @@
 generator client {
   provider = "prisma-client-js"
 }
-
-datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+generator json_server {
+  provider = "prisma-client-js"
+  outputFileName=db.json
 }
-
+datasource db {
+  provider = "sqlite"
+  url      = "file:./db.json"
+}
 model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
