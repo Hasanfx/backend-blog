@@ -2,10 +2,10 @@
   "name": "my-blog",
   "version": "0.1.0",
   "private": true,
-  "main": "server.ts",
+  "main": "server.js",
   "scripts": {
     "dev": "npx nodemon",
-    "build": "tsc server.ts --outDir ./dist",
+    "build": "tsc",
     "start": "node dist/server.js"
   },
   "dependencies": {

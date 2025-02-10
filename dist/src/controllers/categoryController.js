@@ -9,35 +9,29 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCommentsForPost = exports.createComment = void 0;
+exports.getCategories = exports.createCategory = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-const createComment = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { postId, content } = req.body;
+const createCategory = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { name } = req.body;
     try {
-        const newComment = yield prisma.comment.create({
-            data: {
-                content,
-                postId: parseInt(postId),
-            },
+        const newCategory = yield prisma.category.create({
+            data: { name },
         });
-        res.status(201).json(newComment);
+        res.status(201).json(newCategory);
     }
     catch (error) {
-        res.status(500).json({ error: 'Error creating comment' });
+        res.status(500).json({ error: 'Error creating category' });
     }
 });
-exports.createComment = createComment;
-const getCommentsForPost = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { postId } = req.params;
+exports.createCategory = createCategory;
+const getCategories = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const comments = yield prisma.comment.findMany({
-            where: { postId: parseInt(postId) },
-        });
-        res.status(200).json(comments);
+        const categories = yield prisma.category.findMany();
+        res.status(200).json(categories);
     }
     catch (error) {
-        res.status(500).json({ error: 'Error fetching comments' });
+        res.status(500).json({ error: 'Error fetching categories' });
     }
 });
-exports.getCommentsForPost = getCommentsForPost;
+exports.getCategories = getCategories;

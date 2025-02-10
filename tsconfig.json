@@ -20,7 +20,7 @@
       "esnext"
     ],
     "allowJs": true,
-    "noEmit": true,
+    "noEmit": false,
     "incremental": true,
     "isolatedModules": true,
     "jsx": "preserve",

@@ -4,11 +4,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
-const commentController_1 = require("../controllers/commentController");
-const authMiddleware_1 = require("../middlewares/authMiddleware");
+const categoryController_1 = require("../controllers/categoryController");
 const router = express_1.default.Router();
-// GET all blogs
-router.get("/:id", commentController_1.getCommentsForPost);
-// GET single blog by ID
-router.post("/", authMiddleware_1.verifyToken, commentController_1.createComment);
+router.get("/", categoryController_1.getCategories);
+router.post("/", categoryController_1.createCategory);
 exports.default = router;

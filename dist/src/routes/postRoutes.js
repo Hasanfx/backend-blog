@@ -1,9 +1,12 @@
 "use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-var express_1 = require("express");
-var postController_1 = require("../controllers/postController");
-var authMiddleware_1 = require("../middlewares/authMiddleware");
-var router = express_1.default.Router();
+const express_1 = __importDefault(require("express"));
+const postController_1 = require("../controllers/postController");
+const authMiddleware_1 = require("../middlewares/authMiddleware");
+const router = express_1.default.Router();
 // GET all blogs
 router.get("/", postController_1.getAllPosts);
 // GET single blog by ID

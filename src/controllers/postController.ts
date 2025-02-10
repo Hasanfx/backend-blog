@@ -1,5 +1,5 @@
 import express, { Request, Response } from "express";
-import { PrismaClient,User } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { AuthRequest } from "../types/customRequest"; // Correct import path
 import { jwtDecode } from "jwt-decode";
 import * as jwt from "jsonwebtoken"
