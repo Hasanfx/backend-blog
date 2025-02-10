@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "npx nodemon",
-    "build": "tsc",
+    "build": "tsc && next build",
     "start": "node dist/server.js"
   },
   "dependencies": {
